@@ -6,6 +6,7 @@ body
 	background-repeat: no-repeat;
 	background-attachment: fixed;/* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
 	background-size: cover;/* 让背景图基于容器大小伸缩 */
+	
 	.t-region
 	{
 		height: 300px;
@@ -23,8 +24,69 @@ body
 			}
 		}
 	}
+	.m-region
+	{
+		height: 169px;
+		.tab-box
+		{
+			.nav-tabs
+			{
+				li
+				{
+					width: 50%;
+					text-align: center;
+					a
+					{
+						color:#11B5F9;
+					}
+
+				}
+				.active
+				{
+					a
+					{
+						color:#232A2D!important;
+					}
+				}
+			}
+			.tab-content
+			{
+				.tab-pane
+				{
+					.form-group
+					{
+						margin-top: 10px;
+						.input-group
+						{
+							margin-top: 2px;
+						}
+						input[type="submit"]
+						{
+							text-align: center;
+							&:hover
+							{
+								background-color: #C1C9D8;
+								transition:all 0.4s;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	.b-region
 	{
-		
+		height: 90px;
+		margin-top: 190px;
+		.author
+		{
+			color: #fff;
+			font-size: 18px;
+			height: 18px;
+			line-height: 18px;
+			width: 400px;
+			text-align: center;
+			margin: 0 auto 0 auto;
+		}
 	}
 }
