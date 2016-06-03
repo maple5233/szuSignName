@@ -1,25 +1,76 @@
 body
 {
-	background: #E1E2EC;
+	background: #F0F0F0;
 	height: 100%;
 	.left
 	{
+		background-color: #5C6BFF;
 		width: 25%;
 		height: 100%;
-		border-right: 1px solid black;
+		border-right: 1px solid #7B75A1;
 		position: fixed;
 		left: 0;
+		padding: 15px 20px 0 20px;
 		.t-region
 		{
-			height: 100px;
-			.row
+			height: 80px;
+			h1
 			{
-
+				text-align: center;
+				margin-top: 30px;
+				color: #fff;
+				font-size: 36px;
+			}
+			button
+			{
+				position: absolute;
+				top: 2px;
+				right: 2px;
 			}
 		}
 		.m-region
 		{
-			height: 300px;	
+			height: 300px;
+			.menu
+			{
+				border: 1px solid #fff;
+				border-radius: 5px;
+				padding: 15px;
+				width: 90%;
+				margin:0 auto;
+				padding: 20px;
+				select
+				{
+					width: 100%;
+					background: #fff;
+					padding: 5px;
+					font-size: 16px;
+					border: 1px solid #ccc;
+					height: 34px;
+					line-height: 34px;
+					&:hover
+					{
+						background-color: #F0F0F0;
+						transition:all 0.4s;
+					}
+				}
+				.btns
+				{
+					width: 100%;
+					button
+					{
+						width: 100%;
+						margin-top: 15px;
+						line-height: 40px;
+						font-size: 20px;
+						border-radius: 5px;
+						&:hover
+						{
+							transition:all 0.4s;
+						}
+					}
+				}
+			}	
 		}
 		.b-region
 		{
