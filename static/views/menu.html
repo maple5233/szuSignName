@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>功能选择</title>
+	<link rel="stylesheet" href="../bootstrap-3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/menu.min.css?v=1">
+	<link rel="stylesheet" href="../css/Normalize.css">
+</head>
+<body id="whole">
+	<!--左侧导航栏-->
+	<div class="left">
+		<div class="t-region container">
+				<h2>功能选择</h2>
+		</div>
+		<div class="m-region container">
+			<div class="menu">
+				<select v-model="classChosen">
+					<option v-for="className in classList">{{className}}</option>
+				</select>
+				<div class="go">
+					<button  type="button" class="btn btn-default">退出登录</button>
+					<div class="btn-group-vertical" role="group">
+						<button type="button" class="btn btn-default">开始点名</button>
+						<button type="button" class="btn btn-default">查看信息</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="b-region container"></div>
+	</div>
+	<!--右侧内容栏-->
+	<div class="right">
+		
+	</div>
+	<script src="../js/vue.js"></script>
+	<script src="../js/menu.js"></script>
+</body>
+</html>
+
