@@ -4,10 +4,10 @@ body
 	height: 100%;
 	.left
 	{
-		background-color: #5C6BFF;
+		background-color: rgb(81,164,242);
 		width: 25%;
 		height: 100%;
-		border-right: 1px solid #7B75A1;
+		border-right: 1px solid rgb(49,100,147);
 		position: fixed;
 		left: 0;
 		padding: 15px 20px 0 20px;
@@ -17,15 +17,21 @@ body
 			h1
 			{
 				text-align: center;
-				margin-top: 30px;
 				color: #fff;
 				font-size: 36px;
+				border-radius: 5px;
+				border: none;
+				background-color: rgb(22,121,212);
+				width: 80%;
+				margin: 100px auto 0 auto;
 			}
 			button
 			{
 				position: absolute;
-				top: 2px;
-				right: 2px;
+				top: 4px;
+				right: 4px;
+				// color: #03205d;
+				color: rgb(49,100,147);
 			}
 		}
 		.m-region
@@ -33,12 +39,15 @@ body
 			height: 300px;
 			.menu
 			{
-				border: 1px solid #fff;
+				//border: 1px solid #03205d;
 				border-radius: 5px;
 				padding: 15px;
 				width: 90%;
 				margin:0 auto;
 				padding: 20px;
+				background-color:rgb(22,121,212);
+				color: rgb(49,100,147);
+				//color: #03205d;
 				select
 				{
 					width: 100%;
@@ -48,6 +57,7 @@ body
 					border: 1px solid #ccc;
 					height: 34px;
 					line-height: 34px;
+					border-radius: 5px;
 					&:hover
 					{
 						background-color: #F0F0F0;
@@ -64,6 +74,8 @@ body
 						line-height: 40px;
 						font-size: 20px;
 						border-radius: 5px;
+						color: rgb(49,100,147);
+						//color: #03205d;
 						&:hover
 						{
 							transition:all 0.4s;
