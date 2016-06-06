@@ -22,7 +22,7 @@
 				<div class="go">
 					<div class="btn-group-vertical btns" role="group">
 						<button type="button" v-on:click="beginSigning" class="btn btn-default">开始点名</button>
-						<button type="button" class="btn btn-default">查看信息</button>
+						<button type="button" v-on:click="chooseInfo" class="btn btn-default">查看信息</button>
 						<button type="button" v-on:click="endSigning" class="btn btn-default">结束点名</button>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 			<div class="student-list">
 				<h3>学生列表</h3>
 				<ul class="list-group">
-					<li 	v-for="student in studentList" v-on:click="selectStudnt" class="list-group-item">{{student}}</li>
+					<li 	v-for="student in studentList" v-on:click="selectStudent" class="list-group-item">{{student}}</li>
 				</ul>
 			</div>
 		</div>
@@ -56,25 +56,25 @@
 			<div v-if="checkStudent" class="timeInfoList">
 				<h4>该班学生{{studentChosen}}的点名信息如下:</h4>
 				<ul class="list-group">
-					<li 	v-for="times in timeInfo" v-on:click="selectStudnt" class="list-group-item" v-bind:class="{'list-group-item-danger':!times.signed}">{{times.time}}</li>
+					<li 	v-for="times in timeInfo"  class="list-group-item" v-bind:class="{'list-group-item-danger':!times.signed}">{{times.time}}</li>
 				</ul>
 				<ul class="list-group">
-					<li 	v-for="times in timeInfo" v-on:click="selectStudnt" class="list-group-item" v-bind:class="{'list-group-item-danger':!times.signed}">{{times.signText}}</li>
+					<li 	v-for="times in timeInfo"  class="list-group-item" v-bind:class="{'list-group-item-danger':!times.signed}">{{times.signText}}</li>
 				</ul>
 				<ul class="list-group">
-					<li 	v-for="times in timeInfo" v-on:click="selectStudnt" class="list-group-item change" v-bind:class="{'list-group-item-danger':!times.signed}">改变签到状态</li>
+					<li 	v-for="times in timeInfo" v-on:click="changeSign($index,1,$event)" class="list-group-item change" v-bind:class="{'list-group-item-danger':!times.signed}">改变签到状态</li>
 				</ul>
 			</div>
 			<div v-if="checkTime" class="studentInfoList">
 				<h4>该班于{{timeChosen}}的点名信息如下:</h4>
 				<ul class="list-group">
-					<li 	v-for="student in studentInfo" v-on:click="selectStudnt" class="list-group-item" v-bind:class="{'list-group-item-danger':!student.signed}">{{student.studentName}}</li>
+					<li 	v-for="student in studentInfo"  class="list-group-item" v-bind:class="{'list-group-item-danger':!student.signed}">{{student.studentName}}</li>
 				</ul>
 				<ul class="list-group">
-					<li 	v-for="student in studentInfo" v-on:click="selectStudnt" class="list-group-item" v-bind:class="{'list-group-item-danger':!student.signed}">{{student.signText}}</li>
+					<li 	v-for="student in studentInfo"  class="list-group-item" v-bind:class="{'list-group-item-danger':!student.signed}">{{student.signText}}</li>
 				</ul>
 				<ul class="list-group">
-					<li 	v-for="student in studentInfo" v-on:click="selectStudnt" class="list-group-item change" v-bind:class="{'list-group-item-danger':!student.signed}">改变签到状态</li>
+					<li 	v-for="student in studentInfo" v-on:click="changeSign($index,2,$event)" class="list-group-item change" v-bind:class="{'list-group-item-danger':!student.signed}">改变签到状态</li>
 				</ul>
 			</div>
 		</div>
