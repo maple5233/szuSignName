@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>管理员页面</title>
+	<link rel="stylesheet" href="../bootstrap-3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/manager.min.css?v=1">
+	<link rel="stylesheet" href="../css/Normalize.css">
+</head>
+<body id="whole" v-bind:class="{'blue':!logined}">
+	<div v-if="!logined" class="login">
+		<div class="win">
+			<h3>登录验证</h3>
+			<form v-on:submit.prevent="tryLogin">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+					</span>
+					<input type="password" class="form-control" v-model="passIn" placeholder="输入密码">
+				</div>
+				<input class="btn btn-default" type="submit" value="提  交">
+			</form>
+		</div>
+	</div>
+	<div v-if="logined" class="page">
+		<!--左侧导航栏-->
+		<div class="left">
+			<div class="t-region">
+				<h1>管理系统</h1>
+				<button  type="button" class="btn btn-default" v-on:click="logout">退出登录</button>
+			</div>
+			<div class="m-region">
+				<div class="menu">
+					<select v-model="classChosen">
+						<option v-for="className in wholeClassList">{{className}}</option>
+					</select>
+					<div class="go">
+						<div class="btn-group-vertical btns" role="group">
+							<button type="button" v-on:click="passing" class="btn btn-default">通过验证</button>
+							<button type="button" v-on:click="chooseInfo" class="btn btn-default">查看信息</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="b-region"></div>
+		</div>
+		<!--右侧内容栏-->
+		<div class="right">
+			<!-- 老师注册信息栏 -->
+			<div v-if="checkingTec" class="teacherList">
+				<h4>老师注册信息如下:</h4>
+				<ul class="list-group">
+					<li 	v-for="teacher in teacherInfo"  class="list-group-item" v-bind:class="{'list-group-item-warning':!teacher.passed}">{{teacher.name}}</li>
+				</ul>
+				<ul class="list-group">
+					<li 	v-for="teacher in teacherInfo"  class="list-group-item" v-bind:class="{'list-group-item-warning':!teacher.passed}">{{teacher.cardId}}</li>
+				</ul>
+				<ul class="list-group">
+					<li 	v-for="teacher in teacherInfo"  class="list-group-item" v-bind:class="{'list-group-item-warning':!teacher.passed}">{{teacher.cardPass}}</li>
+				</ul>
+				<ul class="list-group">
+					<li 	v-for="teacher in teacherInfo"  class="list-group-item" v-bind:class="{'list-group-item-warning':!teacher.passed}">{{teacher.passText}}</li>
+				</ul>
+				<ul class="list-group">
+					<li 	v-for="teacher in teacherInfo" v-on:click="changePass($index)" class="list-group-item change" v-bind:class="{'list-group-item-warning':!teacher.passed}">改变审核状态</li>
+				</ul>
+			</div>
+			<!-- 查看信息块 -->
+			<div v-if="chosingInfo" class="info">
+				<div class="time-list">
+					<h3>时间列表</h3>
+					<ul class="list-group">
+						<li 	v-for="time in timeList" v-on:click="selectTime" class="list-group-item">{{time}}</li>
+					</ul>
+				</div>
+				<div class="student-list">
+					<h3>学生列表</h3>
+					<ul class="list-group">
+						<li 	v-for="student in studentList" v-on:click="selectStudent" class="list-group-item">{{student}}</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 点名信息表 -->
+			<div v-if="checkingInfo" class="signInfo">
+				<div v-if="checkStudent" class="timeInfoList">
+					<h4>该班学生{{studentChosen}}的点名信息如下:</h4>
+					<ul class="list-group">
+						<li 	v-for="times in timeInfo"  class="list-group-item" v-bind:class="{'list-group-item-danger':!times.signed}">{{times.time}}</li>
+					</ul>
+					<ul class="list-group">
+						<li 	v-for="times in timeInfo"  class="list-group-item" v-bind:class="{'list-group-item-danger':!times.signed}">{{times.signText}}</li>
+					</ul>
+					<ul class="list-group">
+						<li 	v-for="times in timeInfo" v-on:click="changeSign($index,1,$event)" class="list-group-item change" v-bind:class="{'list-group-item-danger':!times.signed}">改变签到状态</li>
+					</ul>
+				</div>
+				<div v-if="checkTime" class="studentInfoList">
+					<h4>该班于{{timeChosen}}的点名信息如下:</h4>
+					<ul class="list-group">
+						<li 	v-for="student in studentInfo"  class="list-group-item" v-bind:class="{'list-group-item-danger':!student.signed}">{{student.studentName}}</li>
+					</ul>
+					<ul class="list-group">
+						<li 	v-for="student in studentInfo"  class="list-group-item" v-bind:class="{'list-group-item-danger':!student.signed}">{{student.signText}}</li>
+					</ul>
+					<ul class="list-group">
+						<li 	v-for="student in studentInfo" v-on:click="changeSign($index,2,$event)" class="list-group-item change" v-bind:class="{'list-group-item-danger':!student.signed}">改变签到状态</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/vue.js"></script>
+	<script src="../js/manager.js"></script>
+</body>
+</html>
+
