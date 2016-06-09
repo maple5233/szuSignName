@@ -99,6 +99,8 @@ var vm = new Vue({
 			this.signing = true
 			this.chosingInfo = false
 			this.checkInfo = false
+			this.checkTime = false
+			this.checkStudent = false
 			/* 获取点名二维码 */
 			/* 将二维码地址赋值 */
 		},
