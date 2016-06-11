@@ -1,3 +1,5 @@
+'use strict';
+
 var vm = new Vue({
 	el:'#whole',
 	data: {

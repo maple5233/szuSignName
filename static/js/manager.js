@@ -1,3 +1,5 @@
+'use strict';
+
 var vm = new Vue({
 	el:'#whole',
 	data: {
@@ -96,7 +98,7 @@ var vm = new Vue({
 				this.logined = !this.logined
 			} else
 			{
-				passIn = ''
+				this.passIn = ''
 				alert('密码错误!')
 			}
 			/* ajax */
