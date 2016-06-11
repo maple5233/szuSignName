@@ -22,7 +22,7 @@ var teacher = require('./models/teacher');
 var signInfo = require('./models/signInfo');
 var student = require('./models/student');
 var schoolClass = require('./models/schoolClass');
-mongoose.connect('mongodb://localhost//szuSignName');
+mongoose.connect('mongodb://localhost/szuSignName');
 
 // 配置passport
 passport.serializeUser(function(user, done) {

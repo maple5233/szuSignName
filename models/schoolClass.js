@@ -24,6 +24,6 @@ ClassSchema.statics = {
     }
 };
 
-var Class = mongoose.model('Class',schoolClassSchema);
+var Class = mongoose.model('Class',ClassSchema);
 
 module.exports = Class ;
