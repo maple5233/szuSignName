@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>签到页</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/Normalize.css">
+    <style>
+        body {
+            background-color: rgb(81, 164, 242);
+        }
+
+        body > form {
+            width: 80%;
+            margin: 600px auto;
+        }
+
+        .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
+            height: 140px;
+            font-size: 30px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body id="whole">
+<form class="form-group" v-on:submit.prevent="sign">
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+        </span>
+        <input type="text" v-model="cardId" placeholder="您的校卡号" class="form-control" number>
+    </div>
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </span>
+        <input type="submit" value="提  交" class="form-control">
+    </div>
+</form>
+<script src="/js/vue.js"></script>
+<script src="http://cdn.bootcss.com/vue-resource/0.7.4/vue-resource.min.js"></script>
+<script type="application/javascript">
+    var vm = new Vue ({
+        el: '#whole',
+        data: {
+            cardId: null
+        },
+        methods: {
+            sign: function () {
+                var url = window.location.href;
+                var classCode = url.split ('/')[ 4 ];
+                var Class = decodeURIComponent (classCode);
+                this.$http.put ('/sign', {
+                    className: Class,
+                    cardId: this.cardId,
+                    signed: true
+                }).then (
+                        function (result) {
+                            if (result.data.code != '0') {
+                                console.log (result.data.code);
+                            } else {
+                                window.alert ('签到成功')
+                                window.location.href = 'http://www.baidu.com'
+                            }
+                        }
+                )
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
   "name": "szuSignName",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -17,8 +17,7 @@
     "jade": "~1.11.0",
     "mongoose": "^4.4.20",
     "morgan": "~1.6.1",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
+    "node-debugger": "^1.0.0",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {

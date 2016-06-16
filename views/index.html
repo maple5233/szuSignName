@@ -26,7 +26,7 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="login">
-                        <form class="form-group">
+                        <form class="form-group" v-on:submit.prevent="login">
                             <div class="input-group"> <span class="input-group-addon">
                             <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
                                 </span>
@@ -40,12 +40,12 @@
                             <div class="input-group"> <span class="input-group-addon">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                 </span>
-                                <input type="submit" value="提  交" class="form-control" v-on:click="login">
+                                <input type="submit" value="提  交" class="form-control">
                             </div>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="regist">
-                        <form  class="form-group">
+                        <form class="form-group" v-on:submit.prevent="regist">
                             <div class="input-group"> <span class="input-group-addon">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                 </span>
@@ -59,12 +59,12 @@
                             <div class="input-group"> <span class="input-group-addon">
                             <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                 </span>
-                                <input type="password" v-model="registPass" placeholder="您的邀请码" class="form-control">
+                                <input type="password" v-model="registPass" placeholder="您的校卡密码" class="form-control">
                             </div>
                             <div class="input-group"> <span class="input-group-addon">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                 </span>
-                                <input type="submit" value="提  交" class="form-control" v-on:click="regist">
+                                <input type="submit" value="提  交" class="form-control">
                             </div>
                         </form>
                     </div>
@@ -76,9 +76,11 @@
     <div class="b-region">
         <p class="author">深大计算机软件学院-深大点名团队制作</p>
     </div>
+
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/js/vue.js"></script>
+    <script src="http://cdn.bootcss.com/vue-resource/0.7.4/vue-resource.min.js"></script>
     <script src="/js/index.js"></script>
 </body>
 
