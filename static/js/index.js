@@ -40,6 +40,7 @@ var vm = new Vue ({
                 return
             } else if (this.registPass.length < 6) {
                 window.alert ('密码过短！')
+                return
             }
             this.$http.post ('/regist', {
                 registName: this.registName,
