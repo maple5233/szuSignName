@@ -5,7 +5,7 @@
 
 var express = require ('express');
 var app = express ();
-var http = require ('http');
+// var http = require ('http');
 var connect = require ('connect');
 var bodyParser = require ('body-parser');
 var session = require ('express-session');
